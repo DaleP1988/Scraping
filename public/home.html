@@ -11,30 +11,30 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+<link href="https://fonts.googleapis.com/css?family=Amiri|Cinzel" rel="stylesheet">
 
 </head>
-<body>
+<body style="background-image:url(../wood.png)">
 
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light" >
-        <a class="navbar-brand" href="#">Mongo Scraper</a>
+        <a id="logo"class="navbar-brand" href="#">Mongo Scraper</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="home.html">Home <span class="sr-only"></span></a>
+              <a style="margin-top:3px ! important; margin-right: 50px" class="nav-link" href="home.html">Home <span class="sr-only"></span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="saved.html">Saved Articles</a>
+              <a style="margin-top:3px ! important" class="nav-link" href="saved.html">Saved Articles</a>
             </li>
             <!-- <li class="nav-item">
               <a class="nav-link" href="#">Pricing</a>
             </li> -->
             <li class="nav-item">
-                    <button id="scrapeNew" type="button" class="btn btn-danger"><a class="nav-link" href="#">SCRAPE NEW ARTICLES</a></button>
+                    <button style="margin-left: 50px"id="scrapeNew" type="button" class="btn btn-danger btn-sm"><a class="nav-link" href="#">SCRAPE NEW ARTICLES</a></button>
             </li>
           </ul>
           <!-- <span class="navbar-text">
@@ -45,16 +45,16 @@
 
       <div id="jumbotron" class="jumbotron jumbotron-fluid">
           <div class="container">
-              <h1 class="display-3">Mongo Scraper</h1>
-              <p class="lead">New York Times Edition</p>
-              <hr class="my-2">
+              <h1 style="color: white ! important" class="display-3">Mongo Scraper</h1>
+              <p style="color: white ! important"  class="lead">New York Times Edition</p>
+              <hr style="color: white ! important" class="my-2">
               <!-- <p>More info</p> -->
               <!-- <p class="lead">
                   <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Jumbo action name</a>
               </p> -->
           </div>
       </div>
-      <div id="resultsCards" class = "container">
+      <div style="overflow: scroll"id="resultsCards" class = "container">
 
         <!-- The Modal -->
 <div class="modal" id="myModal">
@@ -74,7 +74,7 @@
       
             <!-- Modal footer -->
             <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>
             </div>
       
           </div>
@@ -92,14 +92,27 @@
 <style>
 
 #jumbotron {
-background-image: url(nyt.jpeg);  
+background-image: url(../nyt.jpeg);  
 background-position: bottom;
+opacity: .7;
 }
 
 .nav {
 background-color:turquoise !important;
 
 }
+
+#logo {
+
+   font-family: Arial, Helvetica, sans-serif;
+   /* font-weight: bold; */
+   font-size: 30px;
+   margin-right: 50px;
+
+}
+
+/* font-family: 'Cinzel', serif;
+font-family: 'Amiri', serif; */
 
 </style>
 </body>

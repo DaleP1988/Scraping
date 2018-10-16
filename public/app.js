@@ -5,7 +5,7 @@ $( document ).ready(function() {
 
 
 ////////////////////
-/////index.html/////
+/////home.html/////
 ///////////////////
 
 //SCRAPE NEW ARTICLES 
@@ -62,7 +62,7 @@ savedArticlesCards();
 
 
 ////////////////////
-/////main.html/////
+/////saved.html/////
 ///////////////////
 
 
