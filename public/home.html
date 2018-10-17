@@ -1,119 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
 </head>
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+  crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+  crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+  crossorigin="anonymous"></script>
 <link href="https://fonts.googleapis.com/css?family=Amiri|Cinzel" rel="stylesheet">
 
 </head>
+
 <body style="background-image:url(../wood.png)">
 
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" >
-        <a id="logo"class="navbar-brand" href="#">Mongo Scraper</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a style="margin-top:3px ! important; margin-right: 50px" class="nav-link" href="home.html">Home <span class="sr-only"></span></a>
-            </li>
-            <li class="nav-item">
-              <a style="margin-top:3px ! important" class="nav-link" href="saved.html">Saved Articles</a>
-            </li>
-            <!-- <li class="nav-item">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a id="logo" class="navbar-brand" href="#">Mongo Scraper</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a style="margin-top:3px ! important; margin-right: 50px" class="nav-link" href="home.html">Home
+            <span class="sr-only"></span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a style="margin-top:3px ! important" class="nav-link" href="saved.html">Saved Articles</a>
+        </li>
+        <!-- <li class="nav-item">
               <a class="nav-link" href="#">Pricing</a>
             </li> -->
-            <li class="nav-item">
-                    <button style="margin-left: 50px"id="scrapeNew" type="button" class="btn btn-danger btn-sm"><a class="nav-link" href="#">SCRAPE NEW ARTICLES</a></button>
-            </li>
-          </ul>
-          <!-- <span class="navbar-text">
+        <li class="nav-item">
+          <button style="margin-left: 50px" id="scrapeNew" type="button" class="btn btn-danger btn-sm">
+            <a class="nav-link" href="#">SCRAPE NEW ARTICLES</a>
+          </button>
+        </li>
+        <li class="nav-item">
+          <button style="margin-left: 50px" id="scrapeNew" type="button" class="btn btn-danger btn-sm">
+            <a class="nav-link" href="#">Clear Articles</a>
+          </button>
+        </li>
+      </ul>
+      <!-- <span class="navbar-text">
             Navbar text with an inline element
           </span> -->
-        </div>
-      </nav>
+    </div>
+  </nav>
 
-      <div id="jumbotron" class="jumbotron jumbotron-fluid">
-          <div class="container">
-              <h1 style="color: white ! important" class="display-3">Mongo Scraper</h1>
-              <p style="color: white ! important"  class="lead">New York Times Edition</p>
-              <hr style="color: white ! important" class="my-2">
-              <!-- <p>More info</p> -->
-              <!-- <p class="lead">
+  <div id="jumbotron" class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 style="color: white ! important" class="display-3">Mongo Scraper</h1>
+      <p style="color: white ! important" class="lead">New York Times Edition</p>
+      <hr style="color: white ! important" class="my-2">
+      <!-- <p>More info</p> -->
+      <!-- <p class="lead">
                   <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Jumbo action name</a>
               </p> -->
-          </div>
-      </div>
-      <div style="overflow: scroll"id="resultsCards" class = "container">
+    </div>
+  </div>
+  <div style="overflow: scroll" id="resultsCards" class="container">
 
-        <!-- The Modal -->
-<div class="modal" id="myModal">
-        <div class="modal-dialog">
-          <div class="modal-content">
-      
-            <!-- Modal Header -->
-            <div class="modal-header">
-              <h4 id="newNotes"class="modal-title">You have:</h4>
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-      
-            <!-- Modal body -->
-            <div id="newArticles"class="modal-body">
-              Modal body..
-            </div>
-      
-            <!-- Modal footer -->
-            <div class="modal-footer">
-              <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>
-            </div>
-      
+
+    <!-- <div class="card">
+          <h5 class="card-header">Featured</h5>
+          <div class="card-body">
+            <h5 class="card-title">Special title treatment</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
           </div>
+        </div> -->
+
+    <!-- The Modal -->
+    <div class="modal" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 id="newNotes" class="modal-title">You have:</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+
+          <!-- Modal body -->
+          <div id="newArticles" class="modal-body">
+            Modal body..
+          </div>
+
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>
+          </div>
+
         </div>
       </div>
+    </div>
 
-</div>
-
-
-
+  </div>
 
 
-    <script type="text/javascript" src="app.js"></script>
-   
-<style>
 
-#jumbotron {
-background-image: url(../nyt.jpeg);  
-background-position: bottom;
-opacity: .7;
-}
 
-.nav {
-background-color:turquoise !important;
 
-}
+  <script type="text/javascript" src="app.js"></script>
 
-#logo {
+  <style>
+    #jumbotron {
+      background-image: url(../nyt.jpeg);
+      background-position: bottom;
+      opacity: .7;
+    }
 
-   font-family: Arial, Helvetica, sans-serif;
-   /* font-weight: bold; */
-   font-size: 30px;
-   margin-right: 50px;
+    .nav {
+      background-color: turquoise !important;
 
-}
+    }
 
-/* font-family: 'Cinzel', serif;
+    #logo {
+
+      font-family: Arial, Helvetica, sans-serif;
+      /* font-weight: bold; */
+      font-size: 30px;
+      margin-right: 50px;
+
+    }
+
+    /* font-family: 'Cinzel', serif;
 font-family: 'Amiri', serif; */
-
-</style>
+  </style>
 </body>
+
 </html>
