@@ -41,27 +41,57 @@ $(document).on("click", "#saveArticle", function(){
     .then(function(data){
         console.log(data);
         //article title
-
-        //article description
-
-        //delete article button
-
-        //new notes button
-
+        $("#savedArticles").text("<div class='card'></div>");
+        $("#savedArticles").text("<h5 class = card-header>" + data.title + "</h5>");
+        $("#savedArticles").text("<div class='card-body id='newBody'></div>");
+        $("#savedArticles").text("<p class='card-text id='newDesc'>" + data.desc + "</p>");
+         //delete article button
+        $("#savedArticles").text("<a data-id='"+ data.id + "'id='deleteArticle' class='btn btn-secondary btn-sm'>DELETE FROM SAVED</a>"); //for data.description, CHECK JSON
+         //new notes button
+        $("#savedArticles").text("<a data-id='"+ data.id + "'id='articleNotes' class='btn btn-warning btn-sm'>ARTICLE NOTES</a>"); //for data.description, CHECK JSON
 
     })
-
 })
 
+////END POPULATED SAVED ARTICLES
+
+///////////////////////////
+///MAKE NEW NOTE///////////
+///////////////////////////
+
+$(document).on("click", "#articleNotes", function(){
+    $("# ")
+
+}
 
 
 
 
 
 /////////////////////////
-////////MAKE NOTES///////
-/////////////////////////
+//////DELETE FROM SAVED//
+///////////ARTICLE///////
 
+
+/////////////////////////
+///////CLEAR ARTICLES////
+/////in navbar///////////
+
+
+
+
+//////////////////////////
+////////DELETE NOTE///////
+//////////////////////////
+
+
+////////////////////////
+///////ARTICLE NOTES////
+////////////////////////
+
+///////////////////////
+///////SAVE NOTE///////
+//////////////////////
 
 
 
