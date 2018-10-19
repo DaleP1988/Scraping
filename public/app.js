@@ -127,7 +127,7 @@ $(document).on("click", "#saveArticle", function(){
 ///MAKE NEW NOTE///////////
 ///////////////////////////
 
-$(document).on("click", "#articleNotes", function(){
+$(document).on("click", "#articleNotes", function()
     $("#noteModal").modal('show');
     var noteContent = $("#newNotContent").val();
     $("#newNotePosted").text(noteContent).append("<button class='btn btn-danger btn-sm' id='deleteNote'>X</button> ");
