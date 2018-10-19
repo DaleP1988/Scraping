@@ -41,8 +41,8 @@
                     <a style="margin-top:3px ! important" class="nav-link" href="saved.html">Saved Articles</a>
                 </li>
                 <li class="nav-item">
-                    <button style="margin-left: 50px" id="scrapeNew" type="button" class="btn btn-danger btn-sm">
-                        <a class="nav-link" href="#">Clear Articles</a>
+                    <button style="margin-left: 50px" id="clearArticles" type="button" class="btn btn-danger btn-sm">
+                        <a id= "" class="nav-link" href="#">Clear Articles</a>
                     </button>
                 </li>
                 <!-- <li class="nav-item">
@@ -72,9 +72,13 @@
 
     </div>
 
+    <footer>
+        <p> New York Times Mongo Scraper</p>
+      </footer>
+
 
     <!-- The Modal -->
-    <div class="modal" id="myModal">
+    <div class="modal" id="noteModal">
         <div class="modal-dialog">
             <div class="modal-content">
 
@@ -87,12 +91,12 @@
 
                 <!-- Modal body -->
                 <div class="modal-body">
-                    <p id="newNoteContent" placeholder="No note for this article yet"></p>
+                    <p id="newNotePosted" placeholder="No note for this article yet"></p>
                     <h3>New Note</h3>
                     <div class="form-group">
                         <form>
                             <label for="exampleFormControlTextarea1"></label>
-                            <textarea class="form-control" id="" rows="3"></textarea>
+                            <textarea placeholder="New Note" class="form-control" id="newNoteContent" rows="3"></textarea>
                     </div>
                     </form>
                 </div>

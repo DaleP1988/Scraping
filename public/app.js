@@ -1,3 +1,8 @@
+//////////////////////////
+/////////HOME.HTML////////
+//////////////////////////
+
+
 ///////////////////////////
 /////POPULATE ARTICLES/////
 //////////////////////////
@@ -10,18 +15,76 @@ $(document).ready(function () {
 $.getJSON("/articles", function (data) { //check the JSON object for NYTIMES, articles is a URL (make sure this is correct)
     //for each one 
     for (var i = 0; i < data.length; i++) {
-        var newCard = $("#resultsCards").append("<div class='card'></div>");
-        newCard.append("<h5 class = card-header>" + data[i].title + "</h5>");
-        newCard.append("<div class='card-body id='newBody'></div>");
-        newCard.text("<p class='card-text id='newDesc'>" + data[i].desc + "</p>");
-        newCard.text("<a data-id='"+ data[i].id + "'id='saveArticle' class='btn btn-secondary btn-sm'>SAVE ARTICLE</a>"); //for data.description, CHECK JSON
+        var newCard = $("#resultsCards").append("<div class='card'><h5 class = card-header>" + data[i].title + "</h5><div class='card-body id='newBody'></div><p href =" +  data[i].link + "class='card-text id='newDesc'>" + data[i].desc + "</p><a data-id='"+ data[i].id + "'id='saveArticle' role = 'button' class='btn btn-secondary btn-sm'>SAVE ARTICLE</a></div>");
+        // newCard.append("");
+        // newCard.append("");
+        // newCard.text("");
+        // newCard.text(""); //for data.description, CHECK JSON
     
 
 //END POPULATE ARTICLES
 
 
 ////////////////////////
-//////SAVE ARTICLES/////
+////////NAVBAR CLEAR////
+//////ARTICLES//////////
+////////////////////////
+
+//should work for both///
+
+$(document).on("click", "#clearArticles", function (){
+    //need to get articles and delete//
+   $("#resultsCards").empty();
+   $("#resultsCards").append("<div class='card'><div class= 'card-body'>Uh oh. Looks like we don't have any new articles</div></div>");
+   $("#resultsCards").append("<div class= 'card bg-info text-white'><div class = 'card-header'>What Would You Like To Do?><div class = 'card-body'><a id = 'scrapeNewArt'>Try scraping new articles</a><a href='/articles'>Go To Saved Articles</a></div></div></div> ")
+//make sure the file paths are correct for the above
+   })
+
+
+
+//    <div class="card">
+//   <div class="card-header">Header</div>
+//   <div class="card-body">Content</div> 
+//   <div class="card-footer">Footer</div>
+// </div>
+
+
+
+
+////////////////////////////
+///////NAVBAR//////////////
+/////SCRAPE NEW ARTICLES///
+///////////////////////////
+
+$(document).on("click", "#scrapeNew", function (){
+    //need to get articles and delete//
+   
+    $.getJSON("/articles", function (data) { //check the JSON object for NYTIMES, articles is a URL (make sure this is correct)
+        //for each one 
+        for (var i = 0; i < data.length; i++) {
+            var newCard = $("#resultsCards").append("<div class='card'><h5 class = card-header>" + data[i].title + "</h5> <div class='card-body id='newBody'> <p class='card-text id='newDesc'>" + data[i].desc + "</p> <a data-id='"+ data[i].id + "'id='saveArticle' class='btn btn-secondary btn-sm'>SAVE ARTICLE</a> </div>  </div>");
+            // newCard.append("<h5 class = card-header>" + data[i].title + "</h5>");
+            // newCard.append("<div class='card-body id='newBody'></div>");
+            // newCard.text("<p class='card-text id='newDesc'>" + data[i].desc + "</p>");
+            // newCard.text("<a data-id='"+ data[i].id + "'id='saveArticle' class='btn btn-secondary btn-sm'>SAVE ARTICLE</a>"); //for data.description, CHECK JSON
+        
+   })
+
+   $(document).on("click", "#scrapeNewArt", function (){
+
+
+    $.getJSON("/articles", function (data) { //check the JSON object for NYTIMES, articles is a URL (make sure this is correct)
+        //for each one 
+        for (var i = 0; i < data.length; i++) {
+            var newCard = $("#resultsCards").append("<div class='card'><h5 class = card-header>" + data[i].title + "</h5> <div class='card-body id='newBody'> <p class='card-text id='newDesc'>" + data[i].desc + "</p> <a data-id='"+ data[i].id + "'id='saveArticle' class='btn btn-secondary btn-sm'>SAVE ARTICLE</a> </div>  </div>");
+})
+
+
+
+
+
+////////////////////////
+//////SAVE ARTICLE/////
 ////////////////////////
 
 
@@ -41,57 +104,74 @@ $(document).on("click", "#saveArticle", function(){
     .then(function(data){
         console.log(data);
         //article title
-        $("#savedArticles").text("<div class='card'></div>");
-        $("#savedArticles").text("<h5 class = card-header>" + data.title + "</h5>");
-        $("#savedArticles").text("<div class='card-body id='newBody'></div>");
-        $("#savedArticles").text("<p class='card-text id='newDesc'>" + data.desc + "</p>");
+        $("#savedArticles").append("<div class='card'><h5 class = 'card-header'> + data.title + </h5> <div class='card-body id='newBody'><p href =" +  data[i].link + " class='card-text id='newDesc'> + data.desc + </p></div></div><a data-id='"+ data.id + "'id='deleteArticle' role = 'button' class= 'btn btn-secondary btn-sm'>DELETE FROM SAVED</a><a data-id='"+ data.id + "'id='articleNotes' role = 'button' class='btn btn-warning btn-sm'>ARTICLE NOTES</a>");
+        // $("#savedArticles").text("<h5 class = card-header>" + data.title + "</h5>");
+        // $("#savedArticles").text("<div class='card-body id='newBody'></div>");
+        // $("#savedArticles").text("<p class='card-text id='newDesc'>" + data.desc + "</p>");
          //delete article button
-        $("#savedArticles").text("<a data-id='"+ data.id + "'id='deleteArticle' class='btn btn-secondary btn-sm'>DELETE FROM SAVED</a>"); //for data.description, CHECK JSON
+        // $("#savedArticles").text("<a data-id='"+ data.id + "'id='deleteArticle' role = 'button' class='btn btn-secondary btn-sm'>DELETE FROM SAVED</a>"); //for data.description, CHECK JSON
          //new notes button
-        $("#savedArticles").text("<a data-id='"+ data.id + "'id='articleNotes' class='btn btn-warning btn-sm'>ARTICLE NOTES</a>"); //for data.description, CHECK JSON
+        // $("#savedArticles").text("<a data-id='"+ data.id + "'id='articleNotes' role = 'button' class='btn btn-warning btn-sm'>ARTICLE NOTES</a>"); //for data.description, CHECK JSON
 
     })
 })
 
-////END POPULATED SAVED ARTICLES
+//END POPULATED SAVED ARTICLES
+
+/////////////////////////
+//////////SAVED.HTML/////
+/////////////////////////
+
 
 ///////////////////////////
 ///MAKE NEW NOTE///////////
 ///////////////////////////
 
 $(document).on("click", "#articleNotes", function(){
-    $("# ")
+    $("#noteModal").modal('show');
+    var noteContent = $("#newNotContent").val();
+    $("#newNotePosted").text(noteContent).append("<button class='btn btn-danger btn-sm' id='deleteNote'>X</button> ");
+    $("#noteModal").modal('hide');
 
 }
 
+//need to add store note to database!!!
+// ??????????????????????????????????????
 
 
 
+///////////////////////////
+//////DELETE FROM SAVED////
+/////////ARTICLE//////////
 
-/////////////////////////
-//////DELETE FROM SAVED//
-///////////ARTICLE///////
+$(document).on("click", "#deleteArticle", function(){
 
+ //figure out the get path//
 
-/////////////////////////
-///////CLEAR ARTICLES////
-/////in navbar///////////
-
-
-
-
-//////////////////////////
-////////DELETE NOTE///////
-//////////////////////////
 
 
 ////////////////////////
-///////ARTICLE NOTES////
-////////////////////////
+//////DELETE NOTE///////
+///in note modal//////////
 
-///////////////////////
-///////SAVE NOTE///////
-//////////////////////
+$(document).on("click", "#deleteNote" , function(){
+$("#newNotePosted").val("");
+
+})
+
+///make sure the above doesn't delete all notes...
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
