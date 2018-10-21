@@ -1,13 +1,12 @@
-<nav style="background-image: url(assets/img/wood.png) ! important; padding-top: 25px ! important; padding-bottom: 25px !important; height: 80px"class="navbar navbar-expand-lg navbar-light bg-light">
+<nav style="background-image: url(assets/img/wood.png) ! important; padding-top: 25px ! important; padding-bottom: 25px !important; height: 80px"
+  class="navbar navbar-expand-lg navbar-light bg-light">
   <a style="font-family: Amiri, Cinzel; padding-top: 10px; padding-bottom: 20px important !; font-size: 40px ! important; color: black; font-weight: bold "
     id="logo" class="navbar-brand" href="#">Mongo Scraper</a>
 
-  <div style="background-color: whitesmoke important!; padding-top: 25px; padding-bottom: 25px; margin-top: -25px; margin-bottom: 3%;"  class="collapse navbar-collapse" id="navbarText">
+  <div style="background-color: whitesmoke important!; padding-top: 25px; padding-bottom: 25px; margin-top: -25px; margin-bottom: 3%;"
+    class="collapse navbar-collapse" id="navbarText">
     <ul style="list-style-type:none ! important" class="navbar-nav mr-auto">
-      {{!--
-      <li class="nav-item active">
 
-      </li> --}}
       <li class="nav-item active">
         <a href="/">
           <button style="margin-top: 10px" class="btn btn-warning">Home</button>
@@ -16,45 +15,18 @@
     </ul>
   </div>
 
-
-
-  <!-- <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
-            </li> -->
-  {{!--
-  <li class="nav-item">
-    <button style="margin-top: 5% ! important" class="btn btn-danger" id="scrape" data-toggle="modal" data-target="#alertModal">Scrape New Articles</button>
-  </li> --}}
-
-  <div style="background-image: url(assets/img/nyt.jpeg) ! important; background-position-y: 300px" id="jumbotron" style="margin-top: 25px" class="jumbotron jumbotron-fluid">
+  <div style="background-image: url(assets/img/nyt.jpeg) ! important; background-position-y: 300px" id="jumbotron" style="margin-top: 25px"
+    class="jumbotron jumbotron-fluid">
     <div class="container">
       <h1 style="color: white ! important;font-family: Amiri, Cinzel; font-size: 90px ! important;" class="display-3">Saved Articles</h1>
       <p style="color: white ! important;font-family: Amiri, Cinzel; font-size: 30px ! important;" class="lead">Your Saved Articles</p>
       <hr style="color: white ! important" class="my-2">
-      <!-- <p>More info</p> -->
-      <!-- <p class="lead">
-                  <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Jumbo action name</a>
-              </p> -->
+
     </div>
   </div>
 
 
 
-
-
-
-
-
-
-  {{!--
-  <header class="header">
-    <h1 id="neon">[ SAVED ARTICLES ]</h1>
-    <nav class="button-group">
-      <a href="/">
-        <button class="button-dark">Home</button>
-      </a>
-    </nav>
-  </header> --}}
   <div class="filler"></div>
 
   {{!-- #each to iterate through articles and create article panels --}} {{#each articles}} {{#if saved}}

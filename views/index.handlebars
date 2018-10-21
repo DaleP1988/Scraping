@@ -2,37 +2,30 @@
   <a style="font-family: Amiri, Cinzel;  padding-top: 30px; padding-bottom: 5px; font-size: 40px ! important; color: black; font-weight: bold "
     id="logo" class="navbar-brand" href="#">Mongo Scraper</a>
 
-  <div style="background-color: whitesmoke important!; padding-top: 40px; padding-bottom: 40px"  class="collapse navbar-collapse" id="navbarText">
+  <div style="background-color: whitesmoke important!; padding-top: 40px; padding-bottom: 40px" class="collapse navbar-collapse"
+    id="navbarText">
     <ul style="list-style-type:none ! important" class="navbar-nav mr-auto">
       <li class="nav-item active">
 
       </li>
       <li class="nav-item">
-         <a href="/articles/viewSaved">
-        <button style="margin-top: 0; margin-right: 25px !important" class=" btn btn-primary" id="viewSaved">View Saved Articles</button>
-         </a>
-        
+        <a href="/articles/viewSaved">
+          <button style="margin-top: 0; margin-right: 25px !important" class=" btn btn-primary" id="viewSaved">View Saved Articles</button>
+        </a>
+
       </li>
-      <!-- <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
-            </li> -->
+
       <li class="nav-item">
         <button style="margin-top:0" class="btn btn-danger" id="scrape" data-toggle="modal" data-target="#alertModal">Scrape New Articles</button>
       </li>
-      {{!--
-      <li class="nav-item">
-        <button style="margin-left: 50px" id="clearArticles" type="button" class="btn btn-danger btn-sm">
-          <a class="nav-link" href="#">Clear Articles</a>
-        </button>
-      </li> --}}
+
     </ul>
-    <!-- <span class="navbar-text">
-            Navbar text with an inline element
-          </span> -->
+
   </div>
 </nav>
 
-<div style="background-image: url(assets/img/nyt.jpeg) ! important; background-position-y: 300px" style="top: 50%"id="jumbotron" class="jumbotron jumbotron-fluid">
+<div style="background-image: url(assets/img/nyt.jpeg) ! important; background-position-y: 300px" style="top: 50%" id="jumbotron"
+  class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1 style="color: white ! important; font-family: Amiri, Cinzel; font-size: 90px ! important" class="display-3">Mongo Scraper</h1>
     <p style="color: white ! important; font-family: Amiri, Cinzel; font-size: 30px ! important" class="lead">New York Times Health Edition
@@ -47,17 +40,8 @@
 </div>
 
 
-{{!--
-<header class="header">
-  <h1 id="neon">[ BUGSCRAPER ]</h1>
-  <nav class="button-group">
-    <button class="button-dark" id="scrape" data-toggle="modal" data-target="#alertModal">Scrape New Articles</button>
-    <a href="/articles/viewSaved">
-      <button class="button-dark" id="viewSaved">View Saved Articles</button>
-    </a>
-  </nav>
-</header> --}}
-<div  style="background-image: url(assets/img/wood.png) ! important" class="filler"></div>
+
+<div style="background-image: url(assets/img/wood.png) ! important" class="filler"></div>
 
 {{#each articles}} {{#unless saved}}
 
