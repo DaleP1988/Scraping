@@ -1,119 +1,56 @@
-///REQUIRE///
-
-var express = require("express");
-var logger = require("morgan");
-var mongoose = require("mongoose");
-
-
-//SCRAPING TOOLS//
-
-var axios = require("axios");
-var cheerio = require("cheerio");
+//dependencies
+var express = require('express');
+var mongoose = require('mongoose');
+var exphbs = require('express-handlebars');
+var bodyParser = require('body-parser');
+var logger = require('morgan');
+var path = require('path');
+var MongoClient = require("mongodb").MongoClient;
 
 
-//REQUIRE MODELS//
-
-var db = require("./models");
-var PORT = 3000;
-
-
-// INITIALIZE EXPRESS //
-
+//initializing the app
 var app = express();
 
+//setting up the database
+var config = require('./config/database');
+mongoose.Promise = Promise;
+mongoose
+  .connect(config.database)
+  .then( result => {
+    console.log(`Connected to database '${result.connections[0].name}' on ${result.connections[0].host}:${result.connections[0].port}`);
+  })
+  .catch(err => console.log('There was an error with your connection:', err));
 
-//CONFIGURE MIDDLEWARE//
+//setting up Morgan middleware
+app.use(logger('dev'));
 
-// Use morgan logger for logging requests
-app.use(logger("dev"));
-// Parse request body as JSON
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-// Make public a static folder
-app.use(express.static("public"));
+//setting up body parser middleware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
 
+//setting up handlebars middleware
+app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.set('view engine', 'handlebars');
 
-//CONNECT TO MONGO DB//
-
-mongoose.connect("mongodb://localhost/unit18Populater", { useNewUrlParser: true });
-
-//ROUTES//
-
-//A GET route for scraping the NYTimes website
-
-//First grab the body of the html with axios
-
-//Then, load into cheerio and save it to $ (shorthand for selector)
-
-
-//Grab every h2 within article tag
-
-//save empty result
+//setting up the static directory
+app.use(express.static(path.join(__dirname, 'public')));
+app.use('/articles',express.static(path.join(__dirname, 'public')));
+app.use('/notes',express.static(path.join(__dirname, 'public')));
 
 
-//Add text and href of every link, save as properties of the result object
+//setting up routes
+var index = require('./routes/index'),
+      articles = require('./routes/articles'),
+      notes = require('./routes/notes'),
+      scrape = require('./routes/scrape');
 
+app.use('/', index);
+app.use('/articles', articles);
+app.use('/notes', notes);
+app.use('/scrape', scrape);
 
-//Create a new Article using the 'result' object built from scraping
-
-//View added result in the console
-
-
-//If error occured send to client
-
-
-
-//Route for grabbing specific article by id, populate it with it's note
-
-
-//Using the id passed in the id parameter, prepare a query that finds the matching one in the db
-
-
-//populate all notes associated with it
-
-//If we were able to successfully find an Article with the given id, send it back to the client
-
-
-//If an error occured, send it to the client
-
-
-//Route for saving/updating Article's associated Note
-
-//Create a new note and pass the req.body to the entry
-
-
-//if a Note was created successfully, find.... 
-
-//If we were able to successfully update an Article, send it back to the client
-
-
-//If an error occured, send it to the client
-
-
-//start the server
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// NEED TO INCORPORATE THE FOLLOWING SOMEHOW
-
-import { on } from "cluster";
-
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
-
-mongoose.connect(MONGODB_URI);
-
+//starting server
+var PORT = process.env.PORT || 3000;
+app.listen(PORT, function () {
+  console.log(`Listening on http://localhost:${PORT}`);
+});

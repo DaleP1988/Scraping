@@ -1,106 +1,112 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a id="logo" class="navbar-brand" href="#">Mongo Scraper</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
-        aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a style="margin-top:3px ! important; margin-right: 50px" class="nav-link" href="home.html">Home
-                    <span class="sr-only"></span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a style="margin-top:3px ! important" class="nav-link" href="saved.html">Saved Articles</a>
-            </li>
-            <!-- <li class="nav-item">
+  <a style="font-family: Amiri, Cinzel;  padding-top: 30px; padding-bottom: 5px; font-size: 40px ! important; color: black; font-weight: bold "
+    id="logo" class="navbar-brand" href="#">Mongo Scraper</a>
+
+  <div style="background-color: whitesmoke important!; padding-top: 40px; padding-bottom: 40px"  class="collapse navbar-collapse" id="navbarText">
+    <ul style="list-style-type:none ! important" class="navbar-nav mr-auto">
+      <li class="nav-item active">
+
+      </li>
+      <li class="nav-item">
+         <a href="/articles/viewSaved">
+        <button style="margin-top: 0; margin-right: 25px !important" class=" btn btn-primary" id="viewSaved">View Saved Articles</button>
+         </a>
+        
+      </li>
+      <!-- <li class="nav-item">
               <a class="nav-link" href="#">Pricing</a>
             </li> -->
-            <li class="nav-item">
-                <button style="margin-left: 50px" id="scrapeNew" type="button" class="btn btn-danger btn-sm">
-                    <a class="nav-link" href="#">SCRAPE NEW ARTICLES</a>
-                </button>
-            </li>
-            <li class="nav-item">
-                <button style="margin-left: 50px" id="clearArticles" type="button" class="btn btn-danger btn-sm">
-                    <a class="nav-link" href="#">Clear Articles</a>
-                </button>
-            </li>
-        </ul>
-        <!-- <span class="navbar-text">
+      <li class="nav-item">
+        <button style="margin-top:0" class="btn btn-danger" id="scrape" data-toggle="modal" data-target="#alertModal">Scrape New Articles</button>
+      </li>
+      {{!--
+      <li class="nav-item">
+        <button style="margin-left: 50px" id="clearArticles" type="button" class="btn btn-danger btn-sm">
+          <a class="nav-link" href="#">Clear Articles</a>
+        </button>
+      </li> --}}
+    </ul>
+    <!-- <span class="navbar-text">
             Navbar text with an inline element
           </span> -->
-    </div>
+  </div>
 </nav>
 
-
-<div id="jumbotron" class="jumbotron jumbotron-fluid">
-    <div class="container">
-        <h1 style="color: white ! important" class="display-3">Mongo Scraper</h1>
-        <p style="color: white ! important" class="lead">New York Times Edition</p>
-        <hr style="color: white ! important" class="my-2">
-        <!-- <p>More info</p> -->
-        <!-- <p class="lead">
+<div style="background-image: url(assets/img/nyt.jpeg) ! important; background-position-y: 300px" style="top: 50%"id="jumbotron" class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 style="color: white ! important; font-family: Amiri, Cinzel; font-size: 90px ! important" class="display-3">Mongo Scraper</h1>
+    <p style="color: white ! important; font-family: Amiri, Cinzel; font-size: 30px ! important" class="lead">New York Times Health Edition
+      <i class="fas fa-file-medical-alt fa-lg"></i>
+    </p>
+    <hr style="color: white ! important" class="my-2">
+    <!-- <p>More info</p> -->
+    <!-- <p class="lead">
                   <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Jumbo action name</a>
               </p> -->
-    </div>
+  </div>
 </div>
-<div style="overflow: scroll" id="resultsCards" class="filler">
 
 
-    {{!-- modal for the scraped articles --}}
+{{!--
+<header class="header">
+  <h1 id="neon">[ BUGSCRAPER ]</h1>
+  <nav class="button-group">
+    <button class="button-dark" id="scrape" data-toggle="modal" data-target="#alertModal">Scrape New Articles</button>
+    <a href="/articles/viewSaved">
+      <button class="button-dark" id="viewSaved">View Saved Articles</button>
+    </a>
+  </nav>
+</header> --}}
+<div  style="background-image: url(assets/img/wood.png) ! important" class="filler"></div>
 
+{{#each articles}} {{#unless saved}}
 
-    <div class="modal" id="alertModal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <h4 id="newNotes" class="modal-title">You have scraped: </h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-
-                <!-- Modal body -->
-                <div id="newArticles" class="modal-body">
-                    Modal body..
-                </div>
-
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>
-                </div>
-
-            </div>
-        </div>
+<figure style="background-color: whitesmoke; margin-left: 5%; margin-bottom: 3%; padding-bottom: 2%; padding: 15px" class=" storyPanel clearfix">
+  <a href="{{storyUrl}}" class="pull-right" target="_blank">
+    <div class="imgBox">
+      <img src="{{imgUrl}}" alt="" class="storyImg" height="150" style="margin-right:10px; margin-top: 10px; margin-bottom:10px">
     </div>
+  </a>
+  {{#if storyUrl}}
+  <a href="{{storyUrl}}" class="storyLink" target="_blank">
+    <h2 style="font-family: Amiri, Cinzel; color: black ! important" class="storyHeadline">{{headline}}</h2>
+  </a>
+  {{else}}
+  <h3 class="storyHeadline">{{headline}}</h3>
+  {{/if}}
+  <h5 class="storyByline">{{byLine}}</h5>
+  <h6 class="storySummary">{{summary}}</h6>
+  <button class="storyButton btn btn-primary" id="saveArticle" data-id="{{_id}}">Save Article</button>
+</figure>
 
-
-
-
-    {{!-- error modal --}}
-
-    <div class="modal" id="errorModal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <h4 id="newNotes" class="modal-title">PLease try again!</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-
-                <!-- Modal body -->
-                <div id="newArticles" class="modal-body">
-                    Modal body..
-                </div>
-
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>
-                </div>
-
-            </div>
-        </div>
+{{/unless}} {{/each}} {{!-- Modal for alerting number of scraped articles --}}
+<div id="alertModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body text-center">
+        <h2 style="font-family: Amiri, Cinzel ">You have scraped
+          <span id="numArticles"></span> new articles
+          <br>
+          <i class="fas fa-file-medical-alt fa-lg"></i>
+        </h2>
+      </div>
     </div>
+  </div>
+</div>
+
+{{!-- error modal --}}
+<div id="error" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <h2 style="font-family: Amiri, Cinzel "> There must have been an error. Please try again.</h2>
+      </div>
+    </div>
+  </div>
+</div>
